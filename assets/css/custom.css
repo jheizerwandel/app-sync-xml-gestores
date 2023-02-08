@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+
+body{
+    margin: 0;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f5f8fa;
+}
+
+.navbar-laravel
+{
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+.navbar-brand , .nav-link, .my-form, .login-form
+{
+    font-family: Raleway, sans-serif;
+}
+
+.my-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card-body{
+    width:600px;
+    margin:0 auto; 
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.w900{
+    font-weight: 900;
+}
+
+.border-b {
+    border-bottom: 1px solid ;
+}
+
+.login-form {
+    padding-top: 0px !important; 
+    padding-bottom: 0px !important;
+}
+
+.principal-row > *{
+    padding: 0 !important ;
+}
+
+.card{
+    min-height: 570px;
+    border-radius: 0px !important;
+}
+
+#label-logar {
+    display: block;
+}
+
+#div-files{
+    height: 180px;
+    overflow: auto;
+}
+
+#btn{
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    margin-left: 5px
+}
+
+#label-files{
+    font-weight: bold;
+    font-size: 15px;
+}

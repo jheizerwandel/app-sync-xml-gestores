@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+      <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+      <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+      
+      <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+      <title></title>
+   </head>
+   <body>
+   <main class="login-form">
+      <div class="cotainer">
+         <div class="row justify-content-center principal-row">
+            <div class="col-md-12 ">
+               <div class="card">
+                  <div class="card-header">Configurações</div>
+                  <div class="card-body">
+                     <form action="" method="">
+                        <div class="form-group row">
+                              <div class="col-md-5 col-sm-5">
+                                 <label for="email_address" class="col-md-12 col-form-label text-md-right">Login</label>
+                                 <input type="text" id="login" class="form-control" name="email-address"  autofocus>
+                              </div>
+                              <div class="col-md-4 col-sm-4">
+                                 <label for="password" class="col-md-12 col-form-label text-md-right">Senha</label>
+                                 <input type="password" id="password" class="form-control" name="password" >
+                              </div>
+                              <div class="col-md-3 col-sm-3">
+                                 <label id="label-logar"  for="password" class="col-md-12 col-form-label text-md-right">&nbsp;</label>
+                                 <button id="logar" type="submit" class="btn btn-md btn-primary"
+                                    data-loading-text="<i class='fa fa-spinner fa-spin '></i> validando">
+                                 
+                                    validar
+                                 </button>
+                              </div>
+                        </div>
+                        <div class="form-group row">
+                           <div class="col-md-12 col-sm-12">
+                                 <label for="password" class="col-md-12 col-form-label text-md-right">Empresa</label>
+                                 <select class="form-control" id="select-enterprises" disabled="disabled">
+
+                                 </select>
+                           </div>       
+                        </div>
+
+                        <!--
+                        <div class="form-group row">
+                           <div class="col-md-12 col-sm-12">
+                              <label for="email_address" class="col-md-12 col-form-label text-md-right">Atualizar a partir de:/ultima atualização</label>
+                              <input type="text" id="last-update-br" class="form-control" name="email-address"  autofocus>
+                           </div>
+                        </div>
+                        -->
+
+                        <div class="form-group row mt-3">
+                           <div id="label-files">Selecionar pasta para sincronizar
+                              <button id="btn" class="btn btn-sm btn-primary">+</button> 
+                           </div>
+                           <div class="col-md-12 col-sm-12" id="div-files">
+                              <table class="table table-sm" id="t-file">
+                                 <tbody>
+                                    <tr class="unselected text-center">
+                                       <td colspan="4" class="pt-2 fw-bold border-b">Nenhuma pasta selecionada</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="card-footer text-center">
+                        <button id="btn-salvar"  type="submit" class="btn btn-md btn-success"
+                           data-loading-text="<i class='fa fa-spinner fa-spin '></i> Salvando"
+                        >
+                           Salvar
+                        </button>   
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+   <script src="./renderer.js"></script>
+   </body>
+</html>
