@@ -7,9 +7,14 @@ const path = require('path');
 const database = require('../db');
 const modelFile = require('../Models/uploadedFile');
 
+(async () => {
+    await modelFile.sync();
+})();
+
 const XML = {
 	isValid : function (path_name,after) {
-		r = false ;
+		let r = false;
+		let status = '';
 		try { 
 			if (!fs.existsSync(path_name)) return false ;		 
 
@@ -23,20 +28,34 @@ const XML = {
 		        if(error === null) {
 		        	var infProt = _.get(result,'nfeProc.protNFe[0].infProt[0]');
 		        	if(typeof infProt === 'object' && _.get(infProt,'cStat[0]') == 100	){
+						status = 'autorizada'
 		        		r =  result.nfeProc.protNFe[0].infProt[0] ;
 
 		        		var aamm = ( r.chNFe[0]+"" ).substring(2,6);
 		        		if( !(aamm >=after) ){
-		        			r = false ;	
+		        			r = false ;
 		        		}
 
-		        	}
+		        	}else{
+						var descEvento = _.get(result,'procEventoNFe.evento[0].infEvento[0].detEvento[0].descEvento[0]');
+						if(descEvento && descEvento.toLowerCase() == 'cancelamento'){
+							status = 'cancelada'
+							var chNFe = _.get(result,'procEventoNFe.evento[0].infEvento[0].chNFe[0]');
+							var aamm = ( chNFe+"" ).substring(2,6);
+							console.log(aamm,after);
+							if( !(aamm >=after) ){
+								r = false ;
+							}else{
+								r = true ;
+							}
+						}
+					}
 		        }
 		    });
 		} catch (error) {
 		    //console.log(error);
 		}
-		return r!=false;
+		return r!=false ? {isValid:true,status:status} : {isValid:false} ;
 	},
 	saveAsSent : async function(path){
 		try {

@@ -72,7 +72,8 @@ if (gotTheLock) {
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
     let mainWindow;
-    let hostname = 'xml.webgestores.com.br';
+    let test = true ;
+    let hostname = test ? 'xml.webgestores.com' : 'xml.webgestores.com.br';
     let url_api = 'http://' + hostname + '/api/';
 
     function getDateBr(d, s) {
@@ -206,13 +207,13 @@ if (gotTheLock) {
                     var count = 0;
                     for (const file of files) {
                         if (!fs.lstatSync(file).isDirectory()) {
-                            var isValid = await XML.isValid(file, CONFIG.upload_after_AAMM);
+                            var rValid = await XML.isValid(file, CONFIG.upload_after_AAMM);
 
                             var exist = false;
-                            if (isValid)
+                            if (rValid.isValid)
                                 var exist = await XML.exists(file);
 
-                            if (isValid && !exist) {
+                            if (rValid.isValid && !exist) {
                                 count++;
                                 var r_upload = await upload(file, url_api + "enterprises/" + CONFIG.id_enterprise + "/upload");
                                 if (r_upload) {
